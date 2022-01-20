@@ -1,0 +1,107 @@
+@import '../../styles/app.scss';
+
+.root {
+  height: 100%;
+  position: relative;
+  left: 0;
+  transition: left $sidebar-transition-time ease-in-out;
+}
+
+.wrap {
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  margin-left: 64px;
+  flex-direction: column;
+  left: $sidebar-width-open - $sidebar-width-closed;
+  right: 0;
+  transition: left $sidebar-transition-time ease-in-out, margin-left $sidebar-transition-time ease-in-out;
+
+  @media (max-width: breakpoint-max(sm)) {
+    margin-left: 0;
+    left: $sidebar-width-open;
+  }
+}
+
+.sidebarClose div.wrap {
+  left: 0;
+}
+
+.sidebarStatic .wrap {
+  //transition: none;
+  left: 0;
+  margin-left: $sidebar-width-open;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: $content-padding $content-padding ($content-padding + 20px);
+  background-color: $body-bg;
+
+  @media (max-width: breakpoint-max(sm)) {
+    padding: 20px $content-padding-sm ($content-padding + 30px);
+  }
+
+  // hammers disallows text selection, allowing it for large screens
+  @media (min-width: breakpoint-min(sm)) {
+    user-select: auto !important;
+  }
+}
+
+.contentFooter {
+  position: absolute;
+  bottom: 15px;
+  color: $text-muted;
+}
+button.header-button{
+  display: flex;
+  margin-left: auto;
+  padding-right: 1rem;
+  background-color: #002B49;
+  color: #fff;
+  &:hover{
+    background-color: #5CB0FF;
+    color: #002B49;
+  }
+  &-nft{
+    height: 40px;
+    display: flex;
+    background-color: #fff; 
+    color: #002B49;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    white-space: nowrap;
+  }
+  &-csv{
+    height: 40px;
+    display: flex;
+    background-color:#002B49;
+    color:  #fff; 
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    white-space: nowrap;
+  }
+  &-button-span{
+    display: flex;
+    align-self: center;
+    
+  }
+}
+.flex-container{
+  display: flex;
+  justify-content: flex-start;
+
+}
+.mobile-section{
+  width: 50%;
+  justify-content: space-evenly !important;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
